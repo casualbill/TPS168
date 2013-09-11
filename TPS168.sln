@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TPS168.BLL", "TPS168.BLL\TPS168.BLL.csproj", "{FE155913-876F-4A5C-A370-8B2969C4EB08}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TPS168.DAL", "TPS168.DAL\TPS168.DAL.csproj", "{F612EC29-7F77-4AFB-ABE4-6E5526DE5253}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TPS168.WebSite", "TPS168.WebSite\TPS168.WebSite.csproj", "{F82CEC1B-DCC5-4DDB-A178-CCD080A017F1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FE155913-876F-4A5C-A370-8B2969C4EB08}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE155913-876F-4A5C-A370-8B2969C4EB08}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE155913-876F-4A5C-A370-8B2969C4EB08}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE155913-876F-4A5C-A370-8B2969C4EB08}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F612EC29-7F77-4AFB-ABE4-6E5526DE5253}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F612EC29-7F77-4AFB-ABE4-6E5526DE5253}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F612EC29-7F77-4AFB-ABE4-6E5526DE5253}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F612EC29-7F77-4AFB-ABE4-6E5526DE5253}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F82CEC1B-DCC5-4DDB-A178-CCD080A017F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F82CEC1B-DCC5-4DDB-A178-CCD080A017F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F82CEC1B-DCC5-4DDB-A178-CCD080A017F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F82CEC1B-DCC5-4DDB-A178-CCD080A017F1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

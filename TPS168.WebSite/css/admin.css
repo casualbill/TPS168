@@ -1,0 +1,35 @@
+﻿
+.admin-top { margin:0 20px 10px 20px;}
+.admin-top-text { float:left; margin:20px 0 0 10px; line-height:2;}
+
+.admin-wrapper { margin:0 20px 20px 20px;}
+.admin-wrapper a { color:#0066aa;}
+
+.admin-left { width:150px; margin-right:10px; float:left;}
+ .admin-left li { margin-bottom:10px;}
+ .admin-left dt { cursor:pointer;}
+ .admin-left dd { margin:0 0 0 10px;}
+
+.admin-center { float:left; width:800px;}
+
+ .admin-search-bar { margin-bottom:15px;}
+ .admin-search-bar li { margin-bottom:10px;}
+ .admin-search-bar input { margin-right:5px;}
+ .admin-search-bar select { margin-right:5px;}
+ #ctl00_Admin_ContentPlaceHolder_rbl_game_state_query li{ float:left; margin-right:10px;}
+
+ .admin-table { border: 1px solid #888888; border-collapse: collapse; table-layout:fixed; overflow:hidden; }
+ .admin-table th { background-color: #CCCCCC; border: 1px solid #888888; padding: 5px 15px 5px 5px; vertical-align:middle; font-weight:bold; }
+ .admin-table td { background-color: #EFEFEF; border: 1px solid #AAAAAA; padding: 5px 15px 5px 5px; vertical-align:middle; }
+ 
+ .admin-list li { margin-bottom:10px;}
+ .admin-list li:after {content:"\0020";display:block;height:0;clear:both;visibility:hidden;overflow:hidden;}
+ .admin-list em{ display:block; width:100px; height:20px; float:left; text-align:right;}
+ .admin-list .admin-label { display:inline!important; text-align:left;}
+ .admin-list input { margin-right:10px;}
+ .admin-list textarea { width:688px; height:300px;}
+ .admin-list .small-textarea { width:400px; height:100px;}
+ 
+ h2 input { margin-left:10px; vertical-align:middle;}
+ 
+ .ke-editor-wrap { margin:10px 0 0 50px; float:left;}

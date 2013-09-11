@@ -1,0 +1,101 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="admin.Master.cs" Inherits="TPS168.WebSite.admin.admin" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>TPS168后台管理系统</title>
+    <link href="../css/global.css" rel="Stylesheet" type="text/css" />
+    <link href="../css/admin.css" rel="Stylesheet" type="text/css" />
+    <script src="../js/jquery-1.6.2.min.js" type="text/javascript"></script>
+    <script src="../js/admin.js" type="text/javascript"></script>
+    
+    <asp:ContentPlaceHolder ID="Admin_Head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="Admin_Form" runat="server">
+    <div id="page">
+        <div id="wrapper">
+            <div class="admin-top clearfix">
+                <div class="header-logo">
+                    <a href="../index.aspx"><img src="../Images/tps_logo.png" alt="TPS168官方网站" /></a>
+                </div>
+
+                <div class="admin-top-text">
+                    您好，<b><asp:Label ID="lbl_username" runat="server"></asp:Label></b>。欢迎登录TPS168后台管理系统！
+                    <asp:Button ID="btn_userquit" runat="server" OnClick="Session_Clear" Text="退出" UseSubmitBehavior="false" /><br />
+                    您当前所属用户组为：<b><asp:Label ID="lbl_usergroup" runat="server"></asp:Label></b>
+                </div>
+            </div>
+
+            <div class="admin-wrapper clearfix">
+
+                <div class="admin-left">
+                    <ul>
+                        <li>
+                            <dl>
+                                <dt>系统用户管理</dt>
+                                <dd><a href="admincfg.aspx?type=1">用户组查询与设置</a></dd>
+                                <dd><a href="admincfg.aspx?type=2">用户组添加</a></dd>
+                                <dd><a href="admincfg.aspx?type=3">管理员查询与设置</a></dd>
+                                <dd><a href="admincfg.aspx?type=4">管理员添加与更改</a></dd>
+                            </dl>
+                        </li>
+                        <li>
+                            <dl>
+                                <dt>用户管理</dt>
+                                <dd><a href="usercfg.aspx?type=1">用户查询与管理</a></dd>
+                                <dd><a href="usercfg.aspx?type=2">待审用户</a></dd>
+                                <dd><a href="usercfg.aspx?type=3">黑名单</a></dd>
+                            </dl>
+                        </li>
+                        <li>
+                            <dl>
+                                <dt>游戏管理</dt>
+                                <dd><a href="gamecfg.aspx?type=1">游戏查询与管理</a></dd>
+                                <dd><a href="gamecfg.aspx?type=2">游戏添加</a></dd>
+                                <dd><a href="gamecfg.aspx?type=3">服务器查询与管理</a></dd>
+                                <dd><a href="gamecfg.aspx?type=4">服务器添加</a></dd>
+                            </dl>
+                        </li>
+                        <li>
+                            <dl>
+                                <dt>新闻设置</dt>
+                                <dd><a href="newscfg.aspx?type=1">新闻查询与管理</a></dd>
+                                <dd><a href="newscfg.aspx?type=2">新闻添加</a></dd>
+                            </dl>
+                        </li>
+                        <li>
+                            <dl>
+                                <dt>供货库存管理</dt>
+                                <dd><a href="stockcfg.aspx?type=1">供货信息查询</a></dd>
+                                <dd><a href="stockcfg.aspx?type=2">库存信息查询</a></dd>
+                            </dl>
+                        </li>
+                        <li>
+                            <dl>
+                                <dt>订单处理</dt>
+                                <dd><a href="ordercfg.aspx?type=1">所有订单</a></dd>
+                                <dd><a href="ordercfg.aspx?type=1&qm=0">待审订单</a></dd>
+                                <dd><a href="ordercfg.aspx?type=1&qm=1">审核通过-等待交易</a></dd>
+                                <dd><a href="ordercfg.aspx?type=1&qm=2">交易完成-等待汇款</a></dd>
+                                <dd><a href="ordercfg.aspx?type=1&qm=3">完成汇款</a></dd>
+                                <dd><a href="ordercfg.aspx?type=1&qm=4">失败订单</a></dd>
+                                <dd><a href="ordercfg.aspx?type=3">订单操作记录</a></dd>
+                            </dl>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="admin-center">
+                    <asp:ContentPlaceHolder ID="Admin_ContentPlaceHolder" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    </form>
+</body>
+</html>

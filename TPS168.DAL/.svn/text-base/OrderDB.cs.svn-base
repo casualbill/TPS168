@@ -1,0 +1,64 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Data;
+
+namespace TPS168.DAL
+{
+    public class OrderDB
+    {
+        protected DBHelper _dbHelper = new DBHelper();
+
+        public DataSet OrderQuery(String _queryMode, String _queryId, String _sortMode, String _pageIndex, String _pageSize, out int _pageAmount)
+        {
+            _dbHelper.Open();
+            _pageAmount = _dbHelper.ExecuteSPNonQuery("dbo.OrderQuery", _queryMode, _queryId, _sortMode, _pageIndex, _pageSize, null);
+            DataSet _ds = _dbHelper.ExecuteSPDataSet("dbo.OrderQuery", _queryMode, _queryId, _sortMode, _pageIndex, _pageSize, null);
+            _dbHelper.Close();
+            return _ds;
+        }
+
+        public DataSet OrderQueryByOrderId(String _orderId)
+        {
+            _dbHelper.Open();
+            DataSet _ds = _dbHelper.ExecuteSPDataSet("dbo.OrderQueryByOrderId", _orderId, null);
+            _dbHelper.Close();
+            return _ds;
+        }
+
+        public int OrderCreate(String[] _orderStr)
+        {
+            _dbHelper.Open();
+            int _retVal = _dbHelper.ExecuteSPNonQuery("dbo.OrderCreate", _orderStr);
+            _dbHelper.Close();
+            return _retVal;
+        }
+
+        public int OrderOperation(String _adminId, String _orderId, String _orderState, String _serialNumber, String _remarks)
+        {
+            _dbHelper.Open();
+            int _retVal = _dbHelper.ExecuteSPNonQuery("dbo.OrderOperation", _adminId, _orderId, _orderState, _serialNumber, _remarks, null);
+            _dbHelper.Close();
+            return _retVal;
+        }
+
+        public int OrderAmountUpdate(String _adminId, String _orderId, String _amount, String _remarks)
+        {
+            _dbHelper.Open();
+            int _retVal = _dbHelper.ExecuteSPNonQuery("dbo.OrderAmountUpdate", _adminId, _orderId, _amount, _remarks, null);
+            _dbHelper.Close();
+            return _retVal;
+        }
+
+        public DataSet OrderLogQueryByOrderId(String _orderId, String _sortMode, String _pageIndex, String _pageSize, out int _pageAmount)
+        {
+            _dbHelper.Open();
+            _pageAmount = _dbHelper.ExecuteSPNonQuery("dbo.OrderLogQueryByOrderId", _orderId, _sortMode, _pageIndex, _pageSize, null);
+            DataSet _ds = _dbHelper.ExecuteSPDataSet("dbo.OrderLogQueryByOrderId", _orderId, _sortMode, _pageIndex, _pageSize, null);
+            _dbHelper.Close();
+            return _ds;
+        }
+
+    }
+}

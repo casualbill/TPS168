@@ -1,0 +1,123 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="site_mp.Master.cs" Inherits="TPS168.WebSite.site_mp" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>TPS168</title>
+    
+    <link href="css/global.css" rel="Stylesheet" type="text/css" />
+    <script src="js/jquery-1.6.2.min.js" type="text/javascript"></script>
+    <script src="js/common.js" type="text/javascript"></script>
+    <script src="js/WdatePicker.js" type="text/javascript"></script>
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            header_news_roll();
+            create_auth_image("span_authimage");
+        });
+    </script>
+
+    <asp:ContentPlaceHolder ID="Site_Head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+<div id="page">
+    <div id="wrapper">
+
+        <div id="header">
+            <div class="header-logo">
+                <a href="index.aspx"><img src="Images/tps_logo.png" alt="TPS168官方网站" /></a>
+            </div>
+
+            <div class="header-login">
+                <asp:Panel ID="pn_header_login" runat="server" Visible="false" CssClass="header-panel">
+                    用户名：<asp:TextBox ID="tb_username" runat="server" MaxLength="32" Width="100"></asp:TextBox>
+                    密码：<asp:TextBox ID="tb_password" runat="server" TextMode="Password" MaxLength="32" Width="80"></asp:TextBox>
+                    验证码：<asp:TextBox ID="tb_authcode" runat="server" MaxLength="4" Width="50"></asp:TextBox>
+                    <span id="span_authimage" style=" display:inline-block; *display:inline; margin-right:5px; height:25px; vertical-align:middle;"></span>
+
+                    <asp:Button ID="btn_login" OnClick="btn_login_click" runat="server" Text="登录" UseSubmitBehavior="false"  />
+                    <span class="header_link" style="display:none;"><a href="#">忘记密码</a></span>
+                    <span class="header_link"><a href="register.aspx" class="red">快速注册</a></span>
+                </asp:Panel>
+
+                <asp:Panel ID="pn_header_logged" runat="server" Visible="false" CssClass="header-panel">
+                    您好，<asp:Label ID="lb_username" runat="server"></asp:Label>。欢迎登录TPS168游戏金币交易中心！
+                    <asp:Button ID="btn_exit" OnClick="btn_exit_click" runat="server" Text="退出" UseSubmitBehavior="false" />
+                    <span class="header_link"><a href="profile1.aspx">我的游戏中心</a></span>
+                </asp:Panel>
+
+                <span class="header_link" style="padding-left:10px;"><a href="javascript:addToFavorite('http://www.tps168.com','TPS168');">收藏本站</a></span>
+            </div>
+
+            <div class="header-news-roll">
+                <span class="icon-common-1"></span><span class="boldface blue large">最新公告：</span><span id="span_news_roll"></span>
+
+                <input id="ipt_news_id0" runat="server" type="hidden" />
+                <input id="ipt_news_id1" runat="server" type="hidden" />
+                <input id="ipt_news_id2" runat="server" type="hidden" />
+                <input id="ipt_news_id3" runat="server" type="hidden" />
+                <input id="ipt_news_id4" runat="server" type="hidden" />
+
+                <input id="ipt_news_content0" runat="server" type="hidden" />
+                <input id="ipt_news_content1" runat="server" type="hidden" />
+                <input id="ipt_news_content2" runat="server" type="hidden" />
+                <input id="ipt_news_content3" runat="server" type="hidden" />
+                <input id="ipt_news_content4" runat="server" type="hidden" />
+
+                <input id="ipt_news_count" runat="server" type="hidden" />
+            </div>
+
+            <div class="clearfix"></div>
+
+            <div class="header-menu">
+                <ul>
+                    <li id="menu_nav0"><a href="index.aspx">网站首页</a></li>
+                    <li id="menu_nav1"><a href="placeorder.aspx">我要出货</a></li>
+                    <li id="menu_nav2"><a href="article.aspx?type=1">站内公告</a></li>
+                    <li id="menu_nav3"><a href="article.aspx?type=2">游戏资讯</a></li>
+                    <li id="menu_nav4"><a href="article.aspx?type=3">常见问题</a></li>
+                    <li id="menu_nav5"><a href="announcement.aspx?type=1">结款方式</a></li>
+                    <li id="menu_nav6"><a href="announcement.aspx?type=2">关于我们</a></li>
+                </ul>
+            
+            </div>
+        
+        </div>
+        
+
+
+
+        <div id="main" class="clearfix">
+            <asp:ContentPlaceHolder ID="Site_ContentPlaceHolder" runat="server">
+        
+            </asp:ContentPlaceHolder>
+        </div>
+        
+        <div id="footer">
+            <div class="footer-menu">
+                <ul class="clearfix">
+                    <li><a href="javascript:addToFavorite('http://www.tps168.com','TPS168');">收藏本站</a></li>
+                    <li><a href="announcement.aspx?type=2">关于我们</a></li>
+                    <li><a href="announcement.aspx?type=3">渠道合作</a></li>
+                    <li><a href="announcement.aspx?type=1">结款方式</a></li>
+                    <li><a href="#">客服中心</a></li>
+                    <li class="li-last"><a href="#">会员中心</a></li>
+                </ul>
+            </div>
+            <br /><br />
+            游戏金币交易中心 TPS168.com 版权所有<br />
+            Copyright © 2008-2011 www.tps168.com All Rights Reserved<br />
+            《中华人民共和国因特网信息经营许可证》沪ICP备08023566号
+        </div>
+
+    </div>
+</div>
+    </form>
+
+    <div id="remarks" runat="server" style="display:none;"><script src="http://s23.cnzz.com/stat.php?id=3681379&web_id=3681379" language="JavaScript"></script></div>
+</body>
+</html>

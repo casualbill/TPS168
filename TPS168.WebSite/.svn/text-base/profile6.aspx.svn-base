@@ -1,0 +1,86 @@
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/site_mp.Master" AutoEventWireup="true" CodeBehind="profile6.aspx.cs" Inherits="TPS168.WebSite.profile6" %>
+<%@ Register TagPrefix="profile_bar" TagName="profile_bar" Src="~/profile.ascx"  %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="Site_Head" runat="server">
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#menu_profile6").addClass("side-current");
+
+            $("input[js=btn_order_cancel][state=2]").attr("disabled", "disabled");
+            $("input[js=btn_order_cancel][state=3]").attr("disabled", "disabled");
+            $("input[js=btn_order_cancel][state=4]").attr("disabled", "disabled");
+        });
+
+        function order_cancel_check() {
+            return confirm("本次操作将使订单失败，确定要继续吗？");
+        }
+    </script>
+</asp:Content>
+
+<asp:Content ID="Content2" ContentPlaceHolderID="Site_ContentPlaceHolder" runat="server">
+
+    <profile_bar:profile_bar ID="Profile_bar1" runat="server" />
+
+    <div class="main-center">
+        <div class="crumb">
+            当前位置：<a href="index.aspx">首页</a> > <a class="blue boldface" href="profile1.aspx">我的游戏中心</a>
+        </div>
+
+        <div class="main-content">
+            
+            <span id="span_profile_tips" runat="server" class="profile-tips" style="display:none;"></span>
+
+            <div class="profile-stock-table">
+                <table class="admin-table">
+                <tr>
+                    <th class="table-first">订单号</th>
+                    <th>游戏</th>
+                    <th>服务器</th>
+                    <th>数量</th>
+                    <th>总价</th>
+                    <th>订单状态</th>
+                    <!--th class="table-last">操作</th-->
+                </tr>
+
+                <tr>
+                    <td id="query_null" runat="server" colspan="7" visible="false" style="text-align:center;">抱歉，没有符合条件的订单记录，您可以点击这里<a class="green boldface" href="profile4.aspx">下单</a></td>
+                </tr>
+
+                <asp:Repeater ID="rpt_order_list" runat="server" OnItemCommand="rpt_order_list_btn_click">
+                    <ItemTemplate>
+
+                        <tr class="tr_order_list">
+                            <td class="table-first"><%# Eval("OrderId") %></td>
+                            <td><%# Eval("GameName") %></td>
+                            <td><%# Eval("ServerName") %></td>
+                            <td><%# Eval("Amount") %></td>
+                            <td><%# Eval("TotalPrice") %></td>
+                            <td><%# Eval("OrderStateStr") %></th>
+                            <!--td class="table-last">
+                                <asp:Button ID="btn_rpt_order_fail" runat="server" CommandArgument='<%# Eval("OrderId")+","+Eval("OrderState") %>' CommandName="btn_rpt_fail" Text="取消" OnClientClick="return order_cancel_check();" js="btn_order_cancel" state='<%# Eval("OrderState") %>' />
+                            </td-->
+                        </tr>
+            
+                    </ItemTemplate>
+                </asp:Repeater>
+            </table>
+        </div>
+
+        <div id="pagination_wrapper" class="pagination-profile">
+        
+            <span id="pagination_pageindex" runat="server"></span>
+            <span id="pagination_pageamount" runat="server"></span>
+
+            <div id="pagination_frame" runat="server" visible="false" style="display:inline;">
+                <span id="pagination_prev" runat="server"></span>
+
+                <span id="pagination_next" runat="server"></span>
+
+            </div>
+        </div>
+
+        </div>
+
+    </div>
+
+</asp:Content>
